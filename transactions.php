@@ -47,7 +47,6 @@
     <table class="table table-hover table-striped table-condensed table-bordered">
         <thead style="color : white;">
             <tr>
-                <th class="text-center">S.No.</th>
                 <th class="text-center">Sender</th>
                 <th class="text-center">Receiver</th>
                 <th class="text-center">Amount</th>
@@ -68,7 +67,6 @@
         ?>
 
             <tr style="color : white;">
-            <td class="py-2"><?php echo $rows['sno']; ?></td>
             <td class="py-2"><?php echo $rows['sender']; ?></td>
             <td class="py-2"><?php echo $rows['receiver']; ?></td>
             <td class="py-2"><?php echo $rows['amount to transfer']; ?> </td>
