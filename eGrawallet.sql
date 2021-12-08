@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2021 at 01:35 PM
+-- Generation Time: Dec 08, 2021 at 08:20 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.3.33
 
@@ -28,53 +28,36 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `transaction` (
-  `sno` int(11) NOT NULL,
   `sender` varchar(11) NOT NULL,
   `receiver` varchar(11) NOT NULL,
   `amount to transfer` int(11) NOT NULL,
-  `datetime` datetime NOT NULL
+  `datetime` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`sno`, `sender`, `receiver`, `amount to transfer`, `datetime`) VALUES
-(1, 'Rohan', 'Ankit', 4000, '2021-12-03 14:17:18'),
-(2, 'Aman', 'Abhay', 3200, '2021-12-03 14:23:38'),
-(3, 'Rajat', 'Sanjay', 4300, '2021-12-03 14:29:18'),
-(4, 'Ankur', 'Saurav', 5000, '2021-12-03 14:21:45'),
-(5, 'Ayush', 'Manish', 5540, '2021-12-03 14:30:02'),
-(6, 'Manish', 'Ayush', 3600, '2021-12-03 14:30:36'),
-(7, 'Saurav', 'Ankur', 6400, '2021-12-03 14:35:44'),
-(8, 'Sanjay', 'Rajat', 9043, '2021-12-03 14:34:38'),
-(9, 'Abhay', 'Aman', 3000, '2021-12-03 14:38:52'),
-(10, 'Ankit', 'Rohan', 5600, '2021-12-03 14:40:39');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `transaction`
---
-ALTER TABLE `transaction`
-  ADD PRIMARY KEY (`sno`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `transaction`
---
-ALTER TABLE `transaction`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+INSERT INTO `transaction` (`sender`, `receiver`, `amount to transfer`, `datetime`) VALUES
+('Rohan', 'Ankit', 4000, '2021-12-03 08:47:18'),
+('Aman', 'Abhay', 3200, '2021-12-03 08:53:38'),
+('Rajat', 'Sanjay', 4300, '2021-12-03 08:59:18'),
+('Ankur', 'Saurav', 5000, '2021-12-03 08:51:45'),
+('Ayush', 'Manish', 5540, '2021-12-03 09:00:02'),
+('Manish', 'Ayush', 3600, '2021-12-03 09:00:36'),
+('Saurav', 'Ankur', 6400, '2021-12-03 09:05:44'),
+('Sanjay', 'Rajat', 9043, '2021-12-03 09:04:38'),
+('Abhay', 'Aman', 3000, '2021-12-03 09:08:52'),
+('Ankit', 'Rohan', 5600, '2021-12-03 09:10:39'),
+('Ankit', 'Manish', 4426, '2021-12-04 09:41:58'),
+('Saurav', 'Aman', 1787, '2021-12-04 10:16:22'),
+('Rohan', 'Aman', 504, '2021-12-08 19:12:58');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 
 
 
