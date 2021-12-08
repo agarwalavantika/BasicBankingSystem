@@ -50,27 +50,27 @@ if(isset($_POST['submit']))
     else {
         
                 // deducting amount from sender's account
-                $newbalance = $sql1['balance'] - $amount;
-                $sql = "UPDATE users set balance=$newbalance where id=$from";
+                $newbalance = $sql1['amount to transfer'] - $amount;
+                $sql = "UPDATE users set amount to transfer=$newbalance where id=$from";
                 mysqli_query($conn,$sql);
              
 
                 // adding amount to reciever's account
-                $newbalance = $sql2['balance'] + $amount;
-                $sql = "UPDATE users set balance=$newbalance where id=$to";
+                $newbalance = $sql2['amount to transfer'] + $amount;
+                $sql = "UPDATE users set amount to transfer=$newbalance where id=$to";
                 mysqli_query($conn,$sql);
                 
                 $sender = $sql1['name'];
                 $receiver = $sql2['name'];
-                $sql = "INSERT INTO transaction(`sender`, `receiver`, `balance`) VALUES ('$sender','$receiver','$amount')";
+                $sql = "INSERT INTO transaction(`sender`, `receiver`, `amount to transfer`) VALUES ('$sender','$receiver','$amount')";
                 $query=mysqli_query($conn,$sql);
 
-                
+                if($query){
                      echo "<script> alert('Hurray! Transaction is Successful');
                                      window.location='transactions.php';
                            </script>";
                     
-                
+                }
 
                 $newbalance= 0;
                 $amount =0;
@@ -207,3 +207,4 @@ if(isset($_POST['submit']))
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>
+
